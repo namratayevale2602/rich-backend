@@ -5,60 +5,95 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\FormSubmission;
+use App\Services\WhatsAppService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 
 class FormSubmissionController extends Controller
 {
-    public function submit(Request $request)
+   protected $whatsappService;
+
+    public function __construct(WhatsAppService $whatsappService)
     {
-        // Determine form type from endpoint or request
-        $formType = $request->route('type') ?? $request->input('form_type', 'contact');
-        
-        // Validate based on form type
-        $validator = $this->getValidator($request, $formType);
-        
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Validation errors',
-                'errors' => $validator->errors()
-            ], 422);
-        }
-        
-        try {
-            // Prepare data for storage
-            $data = $this->prepareData($request, $formType);
-            
-            // Add IP and user agent
-            $data['ip_address'] = $request->ip();
-            $data['user_agent'] = $request->userAgent();
-            
-            // Create submission
-            $submission = FormSubmission::create($data);
-            
-            // Optional: Send notifications
-            // $this->sendNotifications($submission);
-            
-            return response()->json([
-                'status' => true,
-                'message' => 'Form submitted successfully!',
-                'data' => $submission
-            ], 200);
-            
-        } catch (\Exception $e) {
-            Log::error('Form submission error: ' . $e->getMessage(), [
-                'form_type' => $formType,
-                'data' => $request->all()
-            ]);
-            
-            return response()->json([
-                'status' => false,
-                'message' => 'There was a technical error! Please try again.'
-            ], 500);
-        }
+        $this->whatsappService = $whatsappService;
     }
+
+    public function submit(Request $request)
+{
+    // Determine form type from endpoint or request
+    $formType = $request->route('type') ?? $request->input('form_type', 'contact');
+    
+    // Validate based on form type
+    $validator = $this->getValidator($request, $formType);
+    
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Validation errors',
+            'errors' => $validator->errors()
+        ], 422);
+    }
+    
+    try {
+        // Prepare data for storage
+        $data = $this->prepareData($request, $formType);
+        
+        // Add IP and user agent
+        $data['ip_address'] = $request->ip();
+        $data['user_agent'] = $request->userAgent();
+        
+        // Create submission
+        $submission = FormSubmission::create($data);
+        
+        // Send WhatsApp notification ONLY to sales team (NOT to user)
+        $whatsappResult = $this->whatsappService->sendEnquiryNotification(
+            $request->fullname,
+            $request->mobile,
+            $formType
+        );
+
+        // Check if any message was sent successfully
+        $anySuccess = false;
+        foreach ($whatsappResult as $result) {
+            if (isset($result['success']) && $result['success']) {
+                $anySuccess = true;
+                break;
+            }
+        }
+        
+        if ($anySuccess) {
+            Log::info('Enquiry WhatsApp notification sent to sales team', [
+                'submission_id' => $submission->id,
+                'form_type' => $formType,
+                'customer_name' => $request->fullname,
+                'customer_mobile' => $request->mobile
+            ]);
+        } else {
+            Log::warning('Enquiry WhatsApp notification failed for all recipients', [
+                'submission_id' => $submission->id,
+                'errors' => array_column($whatsappResult, 'error')
+            ]);
+        }
+        
+        return response()->json([
+            'status' => true,
+            'message' => 'Form submitted successfully!',
+            'data' => $submission
+        ], 200);
+        
+    } catch (\Exception $e) {
+        Log::error('Form submission error: ' . $e->getMessage(), [
+            'form_type' => $formType,
+            'data' => $request->all()
+        ]);
+        
+        return response()->json([
+            'status' => false,
+            'message' => 'There was a technical error! Please try again.'
+        ], 500);
+    }
+}
     
     private function getValidator(Request $request, string $formType)
     {

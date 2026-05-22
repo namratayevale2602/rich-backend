@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Validator;
 
 class InternshipApplicationController extends Controller
 {
+     protected $whatsappService;
+
+    public function __construct(WhatsAppService $whatsappService)
+    {
+        $this->whatsappService = $whatsappService;
+    }
+
     /**
      * Store a newly created application.
      */
@@ -63,6 +70,25 @@ class InternshipApplicationController extends Controller
                 'status' => 'pending'
             ]);
 
+            // Send WhatsApp notification using internship template
+            $whatsappResult = $this->whatsappService->sendInternshipNotification(
+                $request->name,
+                $request->phone
+            );
+
+            // Log WhatsApp result
+            if (isset($whatsappResult[0]['success']) && $whatsappResult[0]['success']) {
+                \Log::info('Internship WhatsApp notification sent', [
+                    'application_id' => $application->id,
+                    'mobile' => $request->phone
+                ]);
+            } else {
+                \Log::warning('Internship WhatsApp notification failed', [
+                    'application_id' => $application->id,
+                    'error' => $whatsappResult[0]['error'] ?? 'Unknown error'
+                ]);
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'Application submitted successfully!',
@@ -70,6 +96,8 @@ class InternshipApplicationController extends Controller
             ], 201);
 
         } catch (\Exception $e) {
+            \Log::error('Internship application error: ' . $e->getMessage());
+            
             return response()->json([
                 'success' => false,
                 'message' => 'Failed to submit application. Please try again.',

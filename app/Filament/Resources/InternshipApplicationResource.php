@@ -26,7 +26,7 @@ class InternshipApplicationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static ?string $navigationGroup = 'Applications';
+    protected static ?string $navigationGroup = 'Form Management';
 
     protected static ?string $navigationLabel = 'Internship Applications';
 

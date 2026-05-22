@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\CareerApplication;
+use App\Models\CareerIntro;
+use App\Models\CareerPosition;
+use App\Services\WhatsAppService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -12,6 +15,32 @@ use Illuminate\Support\Facades\Log;
 
 class CareerController extends Controller
 {
+    protected $whatsappService;
+
+    public function __construct(WhatsAppService $whatsappService)
+    {
+        $this->whatsappService = $whatsappService;
+    }
+
+    public function getIntro()
+    {
+        $intros = CareerIntro::active()->get()->map(fn($i) => [
+            'id'          => $i->id,
+            'title'       => $i->title,
+            'description' => $i->description,
+            'image'       => $i->image_url,
+        ]);
+
+        return response()->json(['success' => true, 'data' => $intros]);
+    }
+
+    public function getPositions()
+    {
+        $positions = CareerPosition::active()->orderBy('order')->get(['id', 'position', 'experience', 'type', 'location', 'opening']);
+
+        return response()->json(['success' => true, 'data' => $positions]);
+    }
+
     public function apply(Request $request)
     {
         // Validate the request
@@ -57,11 +86,24 @@ class CareerController extends Controller
                 'user_agent' => $request->userAgent()
             ]);
 
-            // Optional: Send email notification to HR/admin
-            // Mail::to('hr@richsol.com')->send(new NewJobApplication($application));
-            
-            // Optional: Send auto-reply to applicant
-            // Mail::to($application->email)->send(new ApplicationReceived($application));
+            // Send WhatsApp notification to sales team using template
+            $whatsappResult = $this->whatsappService->sendCareerNotification(
+                $request->fullname,
+                $request->mobile
+            );
+
+            // Log WhatsApp result
+            if (isset($whatsappResult[0]['success']) && $whatsappResult[0]['success']) {
+                Log::info('Career WhatsApp notification sent', [
+                    'application_id' => $application->id,
+                    'mobile' => $request->mobile
+                ]);
+            } else {
+                Log::warning('Career WhatsApp notification failed', [
+                    'application_id' => $application->id,
+                    'error' => $whatsappResult[0]['error'] ?? 'Unknown error'
+                ]);
+            }
 
             return response()->json([
                 'status' => true,
