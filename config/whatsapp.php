@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
     
-    'api_url' => env('WHATSAPP_API_URL', 'https://partners.pinbot.ai/v1/messages'),
+    'api_url' => env('WHATSAPP_API_URL', 'https://partnersv1.pinbot.ai/v3'),
     'api_key' => env('WHATSAPP_API_KEY'),
     'phone_number_id' => env('WHATSAPP_PHONE_NUMBER'),
     

@@ -21,14 +21,15 @@ class WhatsAppService
 
     public function __construct()
     {
-        $this->apiUrl = config('whatsapp.api_url', 'https://partners.pinbot.ai/v1/messages');
         $this->apiKey = config('whatsapp.api_key');
         $this->phoneNumberId = config('whatsapp.phone_number_id');
+
+        $baseUrl = rtrim(config('whatsapp.api_url', 'https://partnersv1.pinbot.ai/v3'), '/');
+        $this->apiUrl = "{$baseUrl}/{$this->phoneNumberId}/messages";
 
         // ONLY send to these two recipient numbers (sales team)
         $this->recipientNumbers = array_filter(config('whatsapp.recipients', []));
 
-        // Log configuration status with partial key for debugging
         Log::info('WhatsApp Service initialized', [
             'api_url' => $this->apiUrl,
             'api_key_set' => !empty($this->apiKey),
@@ -60,28 +61,26 @@ class WhatsAppService
         $to = $this->formatPhoneNumber($to);
 
         $data = [
-            "messaging_product" => "whatsapp",
-            "recipient_type" => "individual",
             "to" => $to,
             "type" => "template",
             "template" => [
+                "language" => ["code" => "en"],
                 "name" => $templateName,
-                "language" => ["code" => "en"]
-            ]
+            ],
+            "messaging_product" => "whatsapp",
         ];
 
-        // Add parameters if any
+        // Add parameters if any — first param is text (name), second is contact (phone)
         if (!empty($parameters)) {
+            $mapped = [];
+            foreach (array_values($parameters) as $i => $param) {
+                $mapped[] = [
+                    "type" => $i === 0 ? "text" : "contact",
+                    "text" => (string) $param,
+                ];
+            }
             $data['template']['components'] = [
-                [
-                    "type" => "body",
-                    "parameters" => array_map(function($param) {
-                        return [
-                            "type" => "text",
-                            "text" => $param
-                        ];
-                    }, $parameters)
-                ]
+                ["type" => "body", "parameters" => $mapped]
             ];
         }
 
@@ -97,7 +96,6 @@ class WhatsAppService
             $headers = [
                 'Content-Type: application/json',
                 'apikey: ' . $this->apiKey,
-                'wanumber: ' . $this->phoneNumberId,
             ];
 
             Log::debug('WhatsApp outgoing request', [
