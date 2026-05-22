@@ -70,15 +70,8 @@ class WhatsAppService
             "messaging_product" => "whatsapp",
         ];
 
-        // Add parameters if any — first param is text (name), second is contact (phone)
         if (!empty($parameters)) {
-            $mapped = [];
-            foreach (array_values($parameters) as $i => $param) {
-                $mapped[] = [
-                    "type" => $i === 0 ? "text" : "contact",
-                    "text" => (string) $param,
-                ];
-            }
+            $mapped = array_map(fn($param) => ["type" => "text", "text" => (string) $param], array_values($parameters));
             $data['template']['components'] = [
                 ["type" => "body", "parameters" => $mapped]
             ];
