@@ -20,15 +20,15 @@ class DigitalMarketingServiceSeeder extends Seeder
                 'slug'             => 'seo',
                 'label'            => 'SEO Services',
                 'order'            => 1,
-                'hero_title'       => 'Professional SEO Services: Boost Your Search Rankings & Organic Traffic',
-                'hero_description' => "We provide comprehensive SEO strategies that improve your website's visibility, drive qualified traffic, and increase conversions. Our data-driven approach ensures sustainable growth in search engine rankings.",
+                'hero_title'       => 'Search Engine Optimisation (SEO) Services',
+                'hero_description' => 'Your customers are searching on Google right now — for exactly what you sell. SEO makes sure they find you first. Our SEO services cover on-page optimisation, technical SEO, local SEO for Nashik businesses, link building, and content strategy. We target keywords with real purchase intent, not just traffic for its own sake.',
                 'features'         => [
-                    'Comprehensive keyword research and analysis',
-                    'On-page and technical SEO optimization',
-                    'High-quality backlink building strategy',
-                    'Local SEO for geographical targeting',
-                    'Regular performance reporting and analytics',
-                    'Mobile-first optimization approach',
+                    'On-page optimisation for every key landing page',
+                    'Technical SEO — site speed, crawlability, Core Web Vitals',
+                    'Local SEO for Nashik businesses targeting nearby customers',
+                    'Link building to increase domain authority',
+                    'Content strategy targeting real purchase intent',
+                    'Monthly performance reports with plain-language explanations',
                 ],
                 'deliver_title'       => 'Complete SEO Solutions',
                 'deliver_description' => 'End-to-end SEO services designed to improve your search engine rankings and drive organic growth.',
@@ -77,9 +77,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'social-media-marketing', 'label' => 'Social Media Marketing', 'order' => 2,
-                'hero_title'       => 'Social Media Marketing Services: Grow Your Brand & Engagement',
-                'hero_description' => 'We create powerful social media strategies that increase brand awareness, drive engagement, and generate leads across all major platforms.',
-                'features'         => ['Complete social media strategy development', 'Content creation and calendar management', 'Community engagement and moderation', 'Paid social media advertising', 'Performance analytics and reporting', 'Influencer marketing campaigns'],
+                'hero_title'       => 'Social Media Marketing',
+                'hero_description' => 'Instagram, Facebook, LinkedIn — your audience is active on at least two of these every day. Our social media marketing team creates content that stops the scroll, builds brand recognition, and converts followers into paying customers. We manage your profiles end-to-end so you can focus on running your business.',
+                'features'         => ['Content strategy and monthly content calendar', 'Post creation, design, and copywriting', 'Community management and audience engagement', 'Paid social media advertising on Meta and LinkedIn', 'Performance analytics and monthly reporting', 'Profile optimisation and branding consistency'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -88,9 +88,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'ppc-advertising', 'label' => 'PPC Advertising', 'order' => 3,
-                'hero_title'       => 'PPC Advertising Services: Drive Immediate Results & Qualified Traffic',
-                'hero_description' => 'We manage high-converting PPC campaigns on Google, Facebook, Instagram, and other platforms to deliver immediate traffic and conversions.',
-                'features'         => ['Comprehensive PPC strategy development', 'Keyword research and bid management', 'Ad copy creation and optimization', 'Landing page optimization', 'Conversion tracking setup', 'ROI optimization and reporting'],
+                'hero_title'       => 'Pay-Per-Click (PPC) Advertising — Google Ads & Meta Ads',
+                'hero_description' => 'When you need leads now — not in three months — PPC delivers. We run highly targeted Google Ads and Meta Ads campaigns optimised for cost-per-lead, not just clicks. Every rupee of your ad budget is tracked, measured, and optimised for maximum ROI.',
+                'features'         => ['Google Ads — Search, Display, and Shopping campaigns', 'Meta Ads — Facebook and Instagram targeted advertising', 'Keyword research and competitor bid analysis', 'Ad copy and creative development', 'Landing page design for maximum conversion', 'Monthly reports with cost-per-lead and ROI breakdown'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -99,9 +99,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'content-marketing', 'label' => 'Content Marketing', 'order' => 4,
-                'hero_title'       => 'Content Marketing Services: Attract, Engage & Convert Your Audience',
-                'hero_description' => 'We create compelling content that attracts your target audience, builds trust, and drives conversions through strategic content planning and distribution.',
-                'features'         => ['Content strategy and planning', 'Blog writing and optimization', 'Video content creation', 'Infographic design', 'Content distribution strategy', 'Performance measurement'],
+                'hero_title'       => 'Content Marketing',
+                'hero_description' => 'Content that ranks, educates, and converts. Our content marketing service covers blog writing, website copy, video scripts, case studies, and email newsletters — all written with SEO best practices and your audience\'s intent in mind.',
+                'features'         => ['Blog writing and SEO article creation', 'Website copy and landing page content', 'Video scripts for YouTube and social media', 'Case studies and client success stories', 'Email newsletters with audience-specific messaging', 'Content distribution strategy across channels'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -110,9 +110,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'email-marketing', 'label' => 'Email Marketing', 'order' => 5,
-                'hero_title'       => 'Email Marketing Services: Nurture Leads & Drive Sales',
-                'hero_description' => 'We create targeted email campaigns that nurture leads, retain customers, and drive sales through personalized communication strategies.',
-                'features'         => ['Email campaign strategy development', 'List building and segmentation', 'Automated email sequences', 'A/B testing and optimization', 'Performance analytics', 'GDPR compliance'],
+                'hero_title'       => 'Email Marketing',
+                'hero_description' => 'Email delivers the highest ROI of any digital marketing channel — ₹42 returned for every ₹1 spent on average. Our email marketing campaigns are personalised, automated, and designed to nurture your leads through every stage of the buying journey.',
+                'features'         => ['Promotional campaigns for offers, launches, and events', 'Automated drip sequences and onboarding flows', 'Personalised subject lines and audience segmentation', 'A/B testing for subject lines and send times', 'DKIM, SPF, and DMARC setup for inbox delivery', 'Performance analytics and list health management'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -121,9 +121,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'whatsapp-marketing', 'label' => 'WhatsApp Marketing', 'order' => 6,
-                'hero_title'       => 'WhatsApp Marketing Services: Direct Engagement & Conversions',
-                'hero_description' => 'Leverage WhatsApp Business API for personalized marketing campaigns, customer support, and lead nurturing with high engagement rates.',
-                'features'         => ['WhatsApp Business API setup', 'Broadcast campaign management', 'Automated chatbot integration', 'Customer support automation', 'Transactional message setup', 'Analytics and reporting'],
+                'hero_title'       => 'WhatsApp Marketing Services',
+                'hero_description' => 'With over 500 million WhatsApp users in India, marketing on WhatsApp is no longer optional — it is essential. Through our official Meta Verified WhatsApp Business API, we help you send broadcast campaigns, automate follow-up sequences, and run catalogue-based selling directly on WhatsApp.',
+                'features'         => ['Broadcast campaigns to unlimited contacts via Meta Verified API', 'Automated drip sequences for lead nurturing', 'WhatsApp catalogue selling for retail and FMCG brands', 'Keyword-triggered auto-replies for instant response', 'Multi-agent shared inbox for team conversations', 'Green tick verified business identity'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -132,9 +132,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'bulk-sms', 'label' => 'Bulk SMS Marketing', 'order' => 7,
-                'hero_title'       => 'Bulk SMS Marketing Services: Instant Reach & High Open Rates',
-                'hero_description' => 'Send targeted SMS campaigns with high open rates for promotional offers, alerts, and customer engagement.',
-                'features'         => ['SMS campaign strategy development', 'List management and segmentation', 'Transactional SMS setup', 'Promotional SMS campaigns', 'Two-way messaging', 'Delivery reports'],
+                'hero_title'       => 'Bulk SMS Service Provider in India — Fast, DLT-Compliant & Reliable',
+                'hero_description' => 'Think about the last time a message from a brand actually made you stop and read. Chances are, it came as an SMS — short, direct, delivered straight to your phone. No algorithm. No ad budget competition. Just your message, in front of your customer, within seconds. Rich System Solutions has been providing bulk SMS services across India since 2009. With over 16 years of platform reliability, DLT-compliant infrastructure, and a delivery rate that consistently exceeds 99%, we are the bulk SMS partner that businesses trust when it matters most.',
+                'features'         => ['Promotional bulk SMS for offers, events, and campaigns', 'Transactional SMS — 24/7 including Sundays and public holidays', 'OTP SMS with priority routing — delivered in under 3 seconds', 'API-based SMS integration with REST API and full documentation', 'DLT registration assistance — full TRAI compliance handled', 'Real-time delivery reports and campaign analytics'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],
@@ -143,9 +143,9 @@ class DigitalMarketingServiceSeeder extends Seeder
 
             [
                 'slug' => 'graphic-design', 'label' => 'Graphic Design', 'order' => 8,
-                'hero_title'       => 'Graphic Design Services: Visual Identity & Brand Communication',
-                'hero_description' => 'Create stunning visual designs that communicate your brand message and engage your audience across all channels.',
-                'features'         => ['Brand identity design', 'Logo and visual identity', 'Marketing collateral design', 'Social media graphics', 'Infographic creation', 'Print design services'],
+                'hero_title'       => 'Graphic Design for Digital Marketing',
+                'hero_description' => 'Compelling visuals are the backbone of every digital campaign. Our in-house design team creates social media creatives, ad banners, landing page visuals, infographics, and brand identity assets that make your marketing stand out.',
+                'features'         => ['Social media post and story templates for Instagram, Facebook, LinkedIn', 'Digital ad creatives for Google Display, Facebook Ads, Instagram Ads', 'Landing page visuals and hero banners', 'Infographics and data visualisation', 'Brand identity assets — logo, colour palette, typography', 'WhatsApp campaign creatives and catalogues'],
                 'deliver_title' => null, 'deliver_description' => null, 'deliver_approach' => [], 'deliver_metrics' => [],
                 'solutions' => [], 'strategies_title' => null, 'strategies_description' => null, 'strategies' => [],
                 'process_title' => null, 'process_description' => null, 'process_steps' => [],

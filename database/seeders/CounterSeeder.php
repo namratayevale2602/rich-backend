@@ -46,8 +46,8 @@ class CounterSeeder extends Seeder
                 'icon_2x'      => null,
                 'icon_sizes'   => '64px',
                 'number'       => 16,
-                'title_suffix' => 'Years',
-                'subtitle'     => 'of learning as a marketer',
+                'title_suffix' => '+',
+                'subtitle'     => 'Years of Proven Experience',
                 'order'        => 1,
                 'is_active'    => true,
             ],
@@ -55,7 +55,7 @@ class CounterSeeder extends Seeder
                 'icon'         => 'counter/user_112x112.webp',
                 'icon_2x'      => 'counter/user_224x224.webp',
                 'icon_sizes'   => '(max-width: 640px) 112px, 64px',
-                'number'       => 2000,
+                'number'       => 3000,
                 'title_suffix' => '+',
                 'subtitle'     => 'Satisfied Clients',
                 'order'        => 2,
@@ -67,7 +67,7 @@ class CounterSeeder extends Seeder
                 'icon_sizes'   => '64px',
                 'number'       => 10,
                 'title_suffix' => 'Million +',
-                'subtitle'     => 'Text delivering capacity / year',
+                'subtitle'     => 'SMS Delivered Per Year',
                 'order'        => 3,
                 'is_active'    => true,
             ],
@@ -77,15 +77,15 @@ class CounterSeeder extends Seeder
                 'icon_sizes'   => '64px',
                 'number'       => 99,
                 'title_suffix' => '%',
-                'subtitle'     => 'API Uptime',
+                'subtitle'     => 'SMS Delivery Rate',
                 'order'        => 4,
                 'is_active'    => true,
             ],
         ];
 
         foreach ($counters as $data) {
-            Counter::firstOrCreate(
-                ['subtitle' => $data['subtitle']],
+            Counter::updateOrCreate(
+                ['order' => $data['order']],
                 $data
             );
         }

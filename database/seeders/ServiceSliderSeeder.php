@@ -93,7 +93,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Bulk SMS',
                 'product_name' => 'bulk-sms',
-                'description'  => 'Reliable bulk SMS services for marketing campaigns, alerts, and notifications. Reach thousands instantly with our robust SMS platform.',
+                'description'  => 'Fast, DLT-compliant bulk SMS with 99%+ delivery. Promotional, transactional, and OTP SMS — delivered in seconds to thousands simultaneously.',
                 'image'        => 'service-slider/rechservises.webp',
                 'image_440'    => 'service-slider/responsive/rechservises-440.webp',
                 'image_600'    => 'service-slider/responsive/rechservises_700x933.webp',
@@ -108,7 +108,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Bulk Voice',
                 'product_name' => 'bulk-voice',
-                'description'  => 'Professional bulk voice messaging services for customer engagement, alerts, and marketing campaigns with high delivery rates.',
+                'description'  => 'Automated voice broadcasting for promotional campaigns, transactional alerts, and DTMF interactive responses. Reach thousands simultaneously with real-time delivery reports.',
                 'image'        => 'service-slider/bulkvoiece.webp',
                 'image_440'    => 'service-slider/responsive/bulkvoiece-440.webp',
                 'image_600'    => 'service-slider/responsive/bulkvoiece_600x800.webp',
@@ -123,7 +123,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'WhatsApp Services',
                 'product_name' => 'whatsapp-services',
-                'description'  => 'Official WhatsApp Business API services for marketing, customer support, and automated messaging with high engagement rates.',
+                'description'  => 'Official Meta Verified WhatsApp Business API. Send broadcast campaigns, automate drip sequences, and enable two-way customer conversations — with a green tick verified business identity.',
                 'image'        => 'service-slider/whatsappservice.webp',
                 'image_440'    => 'service-slider/responsive/whatsappservice-440.webp',
                 'image_600'    => 'service-slider/responsive/whatsappservice_600x800.webp',
@@ -138,7 +138,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Digital Marketing',
                 'product_name' => 'digital-marketing',
-                'description'  => 'Comprehensive digital marketing services including SEO, social media marketing, PPC, and content marketing to grow your business online.',
+                'description'  => 'Full-service digital marketing — SEO for Google Page 1, social media, PPC campaigns that return ₹8 for every ₹1 spent, and content marketing for brand building.',
                 'image'        => 'service-slider/digitalmarketing.webp',
                 'image_440'    => 'service-slider/responsive/digitalmarketing-440.webp',
                 'image_600'    => 'service-slider/responsive/digitalmarketing-600.webp',
@@ -153,7 +153,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'WhatsApp Chatbot',
                 'product_name' => 'whatsapp-chatbot',
-                'description'  => 'Intelligent WhatsApp chatbots for customer service, lead generation, and automated conversations. 24/7 customer support solutions.',
+                'description'  => 'A WhatsApp chatbot that never sleeps — handles a hundred conversations at once, qualifies leads, books appointments, and recovers 20–35% of lost enquiries automatically.',
                 'image'        => 'service-slider/whatsAppchatbot.webp',
                 'image_440'    => 'service-slider/responsive/whatsAppchatbot-440.webp',
                 'image_600'    => 'service-slider/responsive/whatsAppchatbot-600.webp',
@@ -168,7 +168,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Digital Automation',
                 'product_name' => 'digital-automation',
-                'description'  => 'Advanced automation solutions for business processes, workflow optimization, and operational efficiency improvement.',
+                'description'  => 'Business automation that eliminates manual work permanently. Businesses with automated follow-up systems convert 2–3x more leads. We automate marketing, communication, and operations.',
                 'image'        => 'service-slider/digitalautomation.webp',
                 'image_440'    => 'service-slider/responsive/digitalautomation-440.webp',
                 'image_600'    => 'service-slider/responsive/digitalautomation-600.webp',
@@ -183,7 +183,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Design & Development',
                 'product_name' => 'design-development',
-                'description'  => 'Professional website design, web development, and mobile app development services to establish your strong digital presence.',
+                'description'  => 'End-to-end software development since 2009 — over 1,000 custom projects delivered. Custom software, web apps, mobile apps, and SaaS products built to your exact business workflow.',
                 'image'        => 'service-slider/designdevelopmment.webp',
                 'image_440'    => 'service-slider/responsive/designdevelopmment-440.webp',
                 'image_600'    => 'service-slider/responsive/designdevelopmment-600.webp',
@@ -198,7 +198,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Graphic Design',
                 'product_name' => 'graphic-design',
-                'description'  => 'Professional graphic design services including logos, branding, marketing materials, and digital graphics for your business.',
+                'description'  => 'Professional graphic design in Nashik — logo and brand identity, social media creatives, ad banners, and marketing collateral. Consistent brand presentation increases revenue by 23%.',
                 'image'        => 'service-slider/graphics.webp',
                 'image_440'    => 'service-slider/responsive/graphics-440.webp',
                 'image_600'    => 'service-slider/responsive/graphics-600.webp',
@@ -213,7 +213,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Alert System',
                 'product_name' => 'alert-system',
-                'description'  => 'Custom alert and notification systems for businesses. Real-time alerts via SMS, voice, email, and push notifications.',
+                'description'  => 'DLT-compliant bulk SMS alert system for real-time business notifications. Appointment reminders reduce no-shows by up to 30%. Ideal for healthcare, education, and retail.',
                 'image'        => 'service-slider/alertsystem.webp',
                 'image_440'    => 'service-slider/responsive/alertsystem-440.webp',
                 'image_600'    => 'service-slider/responsive/alertsystem-600.webp',
@@ -228,7 +228,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'IVR System',
                 'product_name' => 'ivr-system',
-                'description'  => 'Professional IVR system development for call centers and businesses. Automate customer interactions and improve call management.',
+                'description'  => 'Professional cloud-based IVR system — multi-level call routing, call recording, and CRM integration. Set up in 24–48 hours. No hardware required.',
                 'image'        => 'service-slider/ivrsystem.webp',
                 'image_440'    => 'service-slider/responsive/ivrsystem-440.webp',
                 'image_600'    => 'service-slider/responsive/ivrsystem_600x800.webp',
@@ -243,7 +243,7 @@ class ServiceSliderSeeder extends Seeder
             [
                 'title'        => 'Bulk Email',
                 'product_name' => 'bulk-email',
-                'description'  => 'Professional bulk email marketing services for newsletters, promotions, and customer engagement campaigns with high deliverability rates.',
+                'description'  => 'High-deliverability bulk email marketing with DKIM, SPF, and DMARC authentication. Email returns ₹42 for every ₹1 invested — higher ROI than any other digital channel.',
                 'image'        => 'service-slider/bulkemail.webp',
                 'image_440'    => 'service-slider/responsive/bulkemail-440.webp',
                 'image_600'    => 'service-slider/responsive/bulkemail_600x800.webp',
@@ -258,7 +258,7 @@ class ServiceSliderSeeder extends Seeder
         ];
 
         foreach ($services as $data) {
-            ServiceSlider::firstOrCreate(
+            ServiceSlider::updateOrCreate(
                 ['slug' => $data['slug']],
                 $data
             );

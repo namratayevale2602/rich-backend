@@ -28,6 +28,8 @@ use Database\Seeders\ContactSeeder;
 use Database\Seeders\LegalSeeder;
 use Database\Seeders\PageSeoSeeder;
 use Database\Seeders\SeoKeywordSeeder;
+use Database\Seeders\BannerSeeder;
+use Database\Seeders\HeroSectionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,6 +48,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            BannerSeeder::class,
+            HeroSectionSeeder::class,
             CounterSeeder::class,
             ServiceSliderSeeder::class,
             ClientLogoSeeder::class,

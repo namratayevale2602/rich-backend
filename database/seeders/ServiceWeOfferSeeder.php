@@ -44,7 +44,7 @@ class ServiceWeOfferSeeder extends Seeder
         $services = [
             [
                 'number' => '01', 'title' => 'SOFTWARE & IT SERVICES',
-                'description' => 'Comprehensive software solutions and IT services tailored to your business needs',
+                'description' => 'Behind every growing business is software that works reliably. Rich System Solutions has delivered over 1,000 custom projects since 2009 — software that manages inventory, tracks customers, and connects every department without friction.',
                 'image' => 'services-we-offer/softwareitservice.webp',
                 'image_400' => 'services-we-offer/responsive/softwareitservice-400.webp',
                 'image_700' => 'services-we-offer/responsive/softwareitservice-700.webp',
@@ -61,7 +61,7 @@ class ServiceWeOfferSeeder extends Seeder
             ],
             [
                 'number' => '02', 'title' => 'SOCIAL MEDIA MARKETING',
-                'description' => 'Boost your brand presence across social media platforms',
+                'description' => 'Official Meta Verified WhatsApp Business API, DLT-compliant bulk SMS, WhatsApp chatbot automation, and social media marketing — all under one roof from a trusted Nashik partner.',
                 'image' => 'services-we-offer/socialmediamark.webp',
                 'image_400' => 'services-we-offer/responsive/socialmediamark-400.webp',
                 'image_700' => 'services-we-offer/responsive/socialmediamark-700.webp',
@@ -81,7 +81,7 @@ class ServiceWeOfferSeeder extends Seeder
             ],
             [
                 'number' => '03', 'title' => 'SEO SERVICES',
-                'description' => 'Optimize your online visibility and climb search engine rankings',
+                'description' => 'We push Nashik businesses to Google Page 1. SEO campaigns covering on-page optimisation, technical SEO, local SEO, link building, and content strategy targeting real purchase intent.',
                 'image' => 'services-we-offer/seo.webp',
                 'image_400' => 'services-we-offer/responsive/seo-400.webp',
                 'image_700' => 'services-we-offer/responsive/seo-700.webp',
@@ -95,7 +95,7 @@ class ServiceWeOfferSeeder extends Seeder
             ],
             [
                 'number' => '04', 'title' => 'DESIGN & DEVELOPMENT',
-                'description' => 'Creative design and robust development solutions',
+                'description' => 'From responsive business websites to complex enterprise platforms — designed and built by our in-house team. Fast, secure, scalable, and SEO-ready from day one.',
                 'image' => 'services-we-offer/designanddevelopmemt.webp',
                 'image_400' => 'services-we-offer/responsive/designanddevelopmemt-400.webp',
                 'image_700' => 'services-we-offer/responsive/designanddevelopmemt-700.webp',
@@ -109,7 +109,7 @@ class ServiceWeOfferSeeder extends Seeder
             ],
             [
                 'number' => '05', 'title' => 'CONTENT MARKETING',
-                'description' => 'Engage your audience with strategic content solutions',
+                'description' => 'Content that ranks, educates, and converts. Blog writing, website copy, video scripts, case studies, and email newsletters — all written with SEO best practices and purchase intent in mind.',
                 'image' => 'services-we-offer/contentmarketing.webp',
                 'image_400' => 'services-we-offer/responsive/contentmarketing-400.webp',
                 'image_700' => 'services-we-offer/responsive/contentmarketing-700.webp',
@@ -122,7 +122,7 @@ class ServiceWeOfferSeeder extends Seeder
             ],
             [
                 'number' => '06', 'title' => 'PERFORMANCE MARKETING',
-                'description' => 'Data-driven marketing strategies for measurable results',
+                'description' => 'Highly targeted Google Ads and Meta Ads campaigns optimised for cost-per-lead. Every rupee of your ad budget is tracked, measured, and optimised for maximum ROI — not just clicks.',
                 'image' => 'services-we-offer/performancemarketing.webp',
                 'image_400' => 'services-we-offer/responsive/performancemarketing-400.webp',
                 'image_700' => 'services-we-offer/responsive/performancemarketing-700.webp',
@@ -137,7 +137,7 @@ class ServiceWeOfferSeeder extends Seeder
         ];
 
         foreach ($services as $data) {
-            ServiceWeOffer::firstOrCreate(['number' => $data['number']], $data);
+            ServiceWeOffer::updateOrCreate(['number' => $data['number']], $data);
         }
 
         $this->command->info('ServiceWeOfferSeeder: seeded ' . count($services) . ' services.');
