@@ -31,5 +31,6 @@ return [
     'recipients' => [
         env('WHATSAPP_RECIPIENT_1'),
         env('WHATSAPP_RECIPIENT_2'),
+        env('WHATSAPP_RECIPIENT_3'),
     ],
 ];

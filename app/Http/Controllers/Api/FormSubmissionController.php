@@ -106,9 +106,11 @@ class FormSubmissionController extends Controller
         ];
         
         // Add form-specific rules
+        $isChatbot = $request->input('source') === 'chatbot';
+
         switch ($formType) {
             case FormSubmission::TYPE_CONTACT:
-                $rules['company'] = 'required|string|max:255';
+                $rules['company'] = $isChatbot ? 'nullable|string|max:255' : 'required|string|max:255';
                 $rules['country'] = 'nullable|string|max:100';
                 $rules['city'] = 'nullable|string|max:100';
                 $rules['product'] = 'nullable|string|max:255';

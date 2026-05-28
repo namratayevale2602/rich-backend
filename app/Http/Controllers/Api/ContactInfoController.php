@@ -3,11 +3,27 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ChatbotLead;
 use App\Models\ContactInfo;
 use App\Models\ContactPhone;
+use Illuminate\Http\Request;
 
 class ContactInfoController extends Controller
 {
+    public function store(Request $request)
+    {
+        ChatbotLead::create([
+            'service'    => $request->input('service'),
+            'fullname'   => $request->input('fullname'),
+            'mobile'     => $request->input('mobile'),
+            'email'      => $request->input('email'),
+            'product'    => $request->input('product'),
+            'ip_address' => $request->ip(),
+        ]);
+
+        return response()->json(['status' => true], 201);
+    }
+
     public function index()
     {
         $info   = ContactInfo::active()->first();

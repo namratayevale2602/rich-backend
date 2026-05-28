@@ -66,6 +66,7 @@ Route::post('/form-submit', [FormSubmissionController::class, 'submit'])
     Route::post('/demo-form-submit', [FormSubmissionController::class, 'submit'])
          ->defaults('type', 'demo');
 Route::get('/contact-info', [ContactInfoController::class, 'index']);
+Route::post('/chatboat-leads', [ContactInfoController::class, 'store']);
 
 Route::get('/legal/terms', [LegalController::class, 'terms']);
 Route::get('/legal/privacy', [LegalController::class, 'privacy']);
